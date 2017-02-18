@@ -1,0 +1,19 @@
+= form_for @post do |f|
+  - if @post.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      ul
+        - @post.errors.full_messages.each do |message|
+          li = message
+
+  .field.input-field
+    = f.label :title, class: "active"
+    = f.text_field :title
+  .field.input-field
+    = f.label :author, class: "active"
+    = f.text_field :author
+  .field.input-field
+    = f.label :content, class: "active"
+    = f.text_area :content, class: "materialize-textarea active"
+  .actions
+    button type="submit" class="waves-effect waves-light btn" Submit

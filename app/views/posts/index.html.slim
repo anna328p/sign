@@ -1,0 +1,25 @@
+- content_for :title, "Listing posts"
+
+table
+  thead
+    tr
+      th Title
+      th Author
+      th Content
+      th
+      th
+      th
+
+  tbody
+    - @posts.each do |post|
+      tr
+        td = post.title
+        td = post.author
+        td = post.content
+        td = link_to 'pageview', post, class: "material-icons", style: "color: black"
+        td = link_to 'create', edit_post_path(post), class: "material-icons", style: "color: black"
+        td = link_to 'delete', post, data: { confirm: 'Are you sure?' }, method: :delete, class: "material-icons", style: "color: black"
+
+br
+
+= link_to 'New Post', new_post_path, class: "waves-effect waves-light btn"

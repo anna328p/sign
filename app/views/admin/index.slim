@@ -1,0 +1,12 @@
+- content_for :title, "Admin control panel"
+
+javascript:
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+
+h3 Set schedule
+form method="get" action="/admin/save-schedule"
+  .input-field
+    select name="schedule" = options_from_collection_for_select Schedule.all, :id, :name
+  button class="waves-effect waves-light btn" type="submit" Submit

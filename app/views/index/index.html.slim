@@ -1,0 +1,60 @@
+javascript:
+  window.onload = function () {
+    setInterval(function () {
+      //document.getElementById('postfeed').src = document.getElementById('postfeed').src
+      $.getJSON('/posts.json', function(data) {
+        var html_string = "";
+        data.reverse();
+        for (var i = 0; i < data.length; i++) {
+          html_string += "<p>"
+          html_string += "<strong>";
+          html_string += data[i]["title"];
+          html_string += "</strong> by ";
+          html_string += data[i]["author"];
+          html_string += " at ";
+          html_string += new Date(data[i]["created_at"]).toString();
+          html_string += "<br />";
+          html_string += data[i]["content"];
+          html_string += "</p>";
+        }
+        document.getElementById('postfeed').innerHTML = html_string;
+      });
+      $.getJSON('/menu_items.json', function(data) {
+        var html_string = "";
+        for (var i = 0; i < data.length; i++) {
+          html_string += "<p style=\"padding:0;margin:0\">"
+          html_string += "<strong>";
+          html_string += data[i]["name"];
+          html_string += "</strong> - $";
+          var price = parseInt(data[i]["price"]);
+          html_string += Math.floor(price / 100);
+          html_string += "."
+          html_string += ("00" + (price % 100)).slice(-2);
+          html_string += "</p>";
+        }
+        document.getElementById('menufeed').innerHTML = html_string;
+      });
+    }, 1 * 1000)
+  }
+.row
+  center style="margin-top:16px"
+    img src="/ge-logo-image.png" height="72px" style="vertical-align: middle;"
+    img src="/ge-logo-words.png" height="72px" style="vertical-align: middle;"
+    span style="font-size:48px;margin:0;padding:0;vertical-align:middle;font-weight:300" &nbsp;| Commons Dashboard
+.row
+  .col.s5
+    .section
+      h5 Schedule
+      = Schedule.find(Setting.schedule.to_i).contents.gsub("\n","<br>").html_safe
+    .divider
+    .section height="100%"
+      h5 Lunch Menu
+      div height="100%" width="100%" seamless="seamless" style="border:0" id="menufeed"
+    .divider
+    .section
+      h5 Student Feed
+      div height="100%" width="100%" seamless="seamless" style="border:0" id="postfeed"
+  .col.s7
+    .section
+      h5 Photos
+      iframe src="/GEHSFEED.htm?/r/gehsfeed" height="500px" width="100%" seamless="seamless" style="border:0"

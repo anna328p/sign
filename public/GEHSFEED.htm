@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://redditp.com/r/gehsfeed -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="./GEHSFEED_files/style.css">
+    <link rel="stylesheet" type="text/css" href="./GEHSFEED_files/toastr.css">
+    <script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="./GEHSFEED_files/jquery.min.js"></script>
+    <script type="text/javascript" src="./GEHSFEED_files/toastr.min.js"></script>
+    <script>
+        window.onerror = function(msg, url, linenumber) {
+            // Tell users when errors occur and log on google analytics
+            // http://stackoverflow.com/questions/2604976/javascript-how-to-display-script-errors-in-a-popup-alert/2604997#2604997
+            var errMessage = msg + '\nURL: ' + url + '\nLine Number: '+ linenumber;
+            ga('send', 'exception', {
+                'exDescription': errMessage,
+                'exFatal': false
+            });
+            $(function(){
+                // toastr does not work before the body exists, so we do this $() trick to postpone the toast.
+                // This is useful to see syntax errors in loaded scripts.
+                toastr.warning("Redditp booboo: " + msg)
+            });
+
+            // report on dev console too
+            return false;
+        }
+    </script>
+    <script type="text/javascript" src="./GEHSFEED_files/jquery.touchwipe.js"></script>
+    <script type="text/javascript" src="./GEHSFEED_files/js.cookie.js"></script>
+    <script type="text/javascript" src="./GEHSFEED_files/ie_hacks.js"></script>
+    <script type="text/javascript" src="./GEHSFEED_files/EmbedIt.js"></script>
+    <script type="text/javascript" src="./GEHSFEED_files/script.js"></script>
+</head>
+<body id="page">
+    <div id="controlsDiv" style="display:none" class="navbox clouds fadeOnIdle">
+        <div class="collapser" data-openstate="open">-</div>
+        <div id="navboxContents">
+            <ul class="nbmenu">
+                <li id="subredditUrl"><a href="http://www.reddit.com/r/gehsfeed">/r/gehsfeed</a></li>
+                <li>
+                    <a href="https://github.com/ubershmekel/redditp/blob/master/README.md" title="hotkeys">hotkeys</a> -
+                    <a href="https://github.com/ubershmekel/redditp" title="redditp source on github">src</a> -
+                    <a href="http://www.reddit.com/r/redditp" title="who made this">blog</a>
+                </li>
+                <li>
+                    <input class="checkbox" type="checkbox" name="nsfw" id="nsfw" value="Auto" checked="">
+                    <label class="checkbox over18" for="nsfw"> nsfw</label>
+                    <img src="./GEHSFEED_files/fullscreen.png" id="fullScreenButton" alt="Fullscreen">
+                </li>
+                          </ul>
+            <ul class="nbmenu">
+                <li>
+                    <input class="checkbox" type="checkbox" name="autoNextSlide" id="autoNextSlide" value="Auto" checked="">
+                    <label class="checkbox" for="autoNextSlide"> Auto-next</label>
+                    every <input type="text" name="timeToNextSlide" id="timeToNextSlide" value="5" size="2"> seconds
+                </li>
+                <li>
+                    <a id="navboxCommentsLink" href="http://www.reddit.com/r/gehsfeed/comments/5tjr8a/testing_image_1/" title="Comments on reddit">comments</a>
+                </li>
+                <li>
+                    <a id="navboxLink" href="https://i.redd.it/kbygfltczcfy.png" title="Testing image #1">image</a>
+                </li>
+                          </ul>
+            <div class="numberButtonList">
+                <ul id="allNumberButtons">
+                <!-- Slide number buttons will be injected by jQuery -->
+                              </ul>
+                <ul id="sfwNumberButtons">
+                <li><a title="Testing image #1" id="numberButton1" class="numberButton">1</a></li> <li><span class="numberButton">-</span></li> <li><a title="Testing image #1" id="numberButton2" class="numberButton">2</a></li> <li><span class="numberButton">-</span></li> <li><a title="Testing image #1" id="numberButton3" class="numberButton">3</a></li> <li><span class="numberButton">-</span></li> <li><a title="Testing image #1" id="numberButton4" class="numberButton">4</a></li> <li><span class="numberButton">-</span></li> <li><a title="Testing image #1" id="numberButton5" class="numberButton">5</a></li> <li><span class="numberButton">-</span></li> <li><a title="Testing image #1" id="numberButton6" class="numberButton active">6</a></li> <li><span class="numberButton">-</span></li> <li><a title="Testing image #1" id="numberButton7" class="numberButton">7</a></li> <li><span class="numberButton">-</span></li> </ul>
+            </div>
+        </div>
+    </div>
+    <div id="titleDiv" style="display:none" class="navbox clouds">
+        <div class="collapser" data-openstate="open">-</div>
+        <h2 id="navboxTitle">Testing image #1</h2>
+        <h3><a id="navboxSubreddit" href="http://www.reddit.com/r/gehsfeed">/r/gehsfeed</a></h3>
+    </div>        
+
+    <div id="recommend" style="display:none; text-align: center; margin: 10px; color: rgb(170, 170, 170);">
+        <p>Maybe try these presentations instead:</p>
+        <ul>
+            <li>
+                <a href="http://redditp.com/r/earthporn">earthporn</a>
+            </li>
+            <li>
+                <a href="http://redditp.com/r/aww">aww</a>
+            </li>
+            <li>
+                <a href="http://redditp.com/r/foodporn">foodporn</a>
+            </li>
+            <li>
+                <a href="http://redditp.com/r/funny">funny</a>
+            </li>
+            <li>
+                <a href="http://redditp.com/r/gonewild">gonewild</a>
+            </li>
+            <li>
+                <a href="http://redditp.com/r/spaceporn">spaceporn</a>
+            </li>
+            <li>
+                <a href="http://redditp.com/r/gifs">gifs</a>
+            </li>
+            <li>
+                <a href="http://redditp.com/r/all">all</a>
+            </li>
+        </ul>    
+    </div>
+    
+    
+    <div id="pictureSlider"><div class="clouds" style="background-image: url(&quot;https://i.redd.it/kbygfltczcfy.png&quot;); background-repeat: no-repeat; background-size: contain; background-position: center center;"></div>
+        <!-- Pictures will be injected by jQuery -->
+        
+    <img id="playButton" src="./GEHSFEED_files/play.svg" style="display: none;"></div>
+
+
+
+</body></html>

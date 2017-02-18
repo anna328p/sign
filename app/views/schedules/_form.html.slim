@@ -1,0 +1,18 @@
+= form_for @schedule do |f|
+  - if @schedule.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@schedule.errors.count, "error")} prohibited this schedule from being saved:"
+      ul
+        - @schedule.errors.full_messages.each do |message|
+          li = message
+
+  .field.input-field
+    = f.label :name
+    = f.text_field :name
+  .field.input-field
+    = f.label :contents
+    = f.text_area :contents, class: "materialize-textarea"
+  .field.input-field
+    = f.label :notes
+    = f.text_field :notes
+  .actions = f.submit

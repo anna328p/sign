@@ -1,0 +1,25 @@
+- content_for :title, "Listing schedules"
+
+table
+  thead
+    tr
+      th Name
+      th Contents
+      th Notes
+      th
+      th
+      th
+
+  tbody
+    - @schedules.each do |schedule|
+      tr
+        td = schedule.name
+        td = schedule.contents
+        td = schedule.notes
+        td = link_to 'Show', schedule
+        td = link_to 'Edit', edit_schedule_path(schedule)
+        td = link_to 'Destroy', schedule, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Schedule', new_schedule_path

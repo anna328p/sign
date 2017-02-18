@@ -1,0 +1,14 @@
+p#notice = notice
+
+p
+  strong Title:&nbsp;
+  = @post.title
+p
+  strong Author:&nbsp;
+  = @post.author
+p
+  strong Content:&nbsp;
+  = @post.content
+
+= link_to 'Edit', edit_post_path(@post), class: "waves-effect waves-light btn", style: "margin-right: 10px"
+= link_to 'Back', posts_path, class: "waves-effect waves-light btn"

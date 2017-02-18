@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title = yield :title
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
+  body
+    header.page_header
+      .container
+        .section
+          h2 = yield :title
+    main
+      .container = yield

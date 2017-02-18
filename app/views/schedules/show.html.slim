@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @schedule.name
+p
+  strong Contents:
+  = @schedule.contents
+p
+  strong Notes:
+  = @schedule.notes
+
+= link_to 'Edit', edit_schedule_path(@schedule)
+'|
+= link_to 'Back', schedules_path

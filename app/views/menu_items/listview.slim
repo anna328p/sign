@@ -1,0 +1,5 @@
+- MenuItem.all.each do |p|
+  p style="padding:0;margin:0"
+    strong = p.name
+    | &nbsp;-&nbsp;
+    = "$#{p.price / 100}.#{(p.price % 100).to_s.rjust 2, ?0}"

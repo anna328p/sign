@@ -1,0 +1,9 @@
+- Post.all.reverse.each do |p|
+  p
+    strong = p.title
+    | &nbsp;by&nbsp;
+    = p.author
+    | &nbsp;at&nbsp;
+    = p.created_at
+    br
+    = p.content

@@ -1,0 +1,23 @@
+- content_for :title, "Listing menu items"
+
+table
+  thead
+    tr
+      th Name
+      th Price
+      th
+      th
+      th
+
+  tbody
+    - @menu_items.each do |menu_item|
+      tr
+        td = menu_item.name
+        td = menu_item.price
+        td = link_to 'Show', menu_item
+        td = link_to 'Edit', edit_menu_item_path(menu_item)
+        td = link_to 'Destroy', menu_item, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Menu item', new_menu_item_path
