@@ -12,7 +12,8 @@ javascript:
           html_string += "</strong> by ";
           html_string += data[i]["author"];
           html_string += " at ";
-          html_string += new Date(data[i]["created_at"]).toString();
+          d = new Date(data[i]["created_at"]);
+          html_string += d.toLocaleDateString() + " " + d.toLocaleTimeString();
           html_string += "<br />";
           html_string += data[i]["content"];
           html_string += "</p>";
