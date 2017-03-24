@@ -15,3 +15,20 @@
  */
 @import "materialize";
 
+
+.inline {
+	display: inline;
+}
+
+.mintwenty {
+	min-width: 20%;
+}
+figure {
+	    display: inline-block;
+		padding: 0px;
+		max-width: 96px;
+}
+
+figcaption {
+	text-align: center;
+}
