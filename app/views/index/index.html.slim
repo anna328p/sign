@@ -7,9 +7,9 @@ javascript:
         data.reverse();
         for (var i = 0; i < data.length; i++) {
           html_string += "<p>"
-          html_string += "<h5>";
+          html_string += "<strong>";
           html_string += data[i]["title"];
-          html_string += "</h5> by ";
+          html_string += "</strong> <br> by ";
           html_string += data[i]["author"];
           html_string += " at ";
           d = new Date(data[i]["created_at"]);
